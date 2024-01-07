@@ -17,7 +17,6 @@ class ShowBottomBars {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          
           height: MediaQuery.of(context).size.height * 0.8,
           padding:const EdgeInsets.all(16.0),
           child: Column(
@@ -38,6 +37,7 @@ class ShowBottomBars {
                   GestureDetector(
                     onTap: (){
                       context.read<UserModel>().setGender('Man');
+                      controller.text = 'Man';
                       Navigator.pop(context);
                     },
                     child: Container(
@@ -59,6 +59,7 @@ class ShowBottomBars {
                   GestureDetector(
                     onTap: (){
                       context.read<UserModel>().setGender('Woman');
+                      controller.text = 'Woman';
                       Navigator.pop(context);
                     },
                     child: Container(
@@ -80,6 +81,19 @@ class ShowBottomBars {
               )
               
               :TextField(
+                onEditingComplete:(){
+                  switch(name){
+                          case 'Name':
+                            context.read<UserModel>().setName(controller.text);
+                          case 'Age':
+                            context.read<UserModel>().setAge(controller.text);
+                          case 'Height':
+                            context.read<UserModel>().setHeigth(controller.text);
+                          case 'Weight':
+                            context.read<UserModel>().setWeigth(controller.text);
+                        };
+                  Navigator.pop(context);
+                },
                 controller: controller,
                 decoration: InputDecoration(
                   labelText: name,
@@ -97,9 +111,9 @@ class ShowBottomBars {
                           case 'Age':
                             context.read<UserModel>().setAge(controller.text);
                       
-                          case 'Heigth':
+                          case 'Height':
                             context.read<UserModel>().setHeigth(controller.text);
-                          case 'Weigth':
+                          case 'Weight':
                             context.read<UserModel>().setWeigth(controller.text);
                         };
                     
