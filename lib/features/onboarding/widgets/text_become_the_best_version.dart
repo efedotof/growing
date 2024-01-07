@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,20 +12,4 @@ class TextBecomeTheBestVersion extends StatelessWidget {
               style: GoogleFonts.getFont('Bona Nova',textStyle:TextStyle(height: 0.9) ,fontSize: 20,  letterSpacing: 0.2, wordSpacing:0.3,),
             );
   }
-=======
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-class TextBecomeTheBestVersion extends StatelessWidget {
-  const TextBecomeTheBestVersion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-              'Become the best version\nof yourself',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.getFont('Bona Nova',textStyle:TextStyle(height: 0.9) ,fontSize: 20,  letterSpacing: 0.2, wordSpacing:0.3,),
-            );
-  }
->>>>>>> eaf69a42d3fb2641b7896640dd815ad1a54beaab
 }
