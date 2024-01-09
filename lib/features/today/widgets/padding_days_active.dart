@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../Model/model.dart';
 
 class PaddingDaysActive extends StatelessWidget {
   const PaddingDaysActive({super.key,
@@ -7,9 +10,16 @@ class PaddingDaysActive extends StatelessWidget {
 
   final ScrollController scrollController;
 
+  //  userModel.addDate('2022-07-26');
+  //    userModel.addDate('2022-07-28');
+  //   userModel.addDate('2023-07-28'); 
+  
+
+
 
   @override
   Widget build(BuildContext context) {
+    var userModel = context.watch<UserModel>();
     return Padding(
               padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
               child: Container(
@@ -28,6 +38,10 @@ class PaddingDaysActive extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 color: const Color(0xFF484847),
+                                // border: Border.all(
+                                //   color: Color(0xFFFC90FB),
+                                //   width: 2
+                                // )
                                 
                               ),
                               child: Center(

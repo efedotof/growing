@@ -267,4 +267,41 @@ class ApplicationFile with ChangeNotifier {
     },
   ];
 
+  List<String> assetsProfile = [
+    'assets/icons/star_checkmark.svg',
+    'assets/icons/darts.svg',
+    'assets/icons/fluffy_bad.svg',
+    'assets/icons/sun.svg',
+  ];
+    List<String> namesGrow = [
+    'Perfect day',
+    'Good day',
+    'Bad day',
+  ];
+  List<int> itemsGrow = [
+    4,5,7
+  ];
+  List<Color?> colorsGrow = [
+    const Color(0xFFFEB3EF),
+    const Color(0xFFB4EDFF),
+    const Color(0xFFCBCBCB),
+  ];
+
+   List<String> nameContainerChange = [
+    'water',
+    'steps',
+    'sport',
+    'reading',
+    'sleep',
+  ];
+
+  List<String> imagesContainerChange = [
+    'assets/ImageToToday/water.png',
+    'assets/ImageToToday/steps.png',
+    'assets/ImageToToday/sport.png',
+    'assets/ImageToToday/reading.png',
+    'assets/ImageToToday/sleep.png'
+  ];
+
+
 }

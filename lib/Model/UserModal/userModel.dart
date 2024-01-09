@@ -1,12 +1,14 @@
 
 import 'dart:developer';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
+import 'package:hive/hive.dart';
+import '../../router/router.dart';
 part 'userModelFunc.dart';
 part 'userModalActivityLevel.dart';
 part 'userModalHabits.dart';
 part 'userModalPersonalData.dart';
+
 
 class UserModel with ChangeNotifier {
   String name = '';
@@ -15,14 +17,13 @@ class UserModel with ChangeNotifier {
   String heigth = '';
   String weigth = '';
   int index = 0;
-  //habits
+
   String water = '';
   String personalcare = '';
   String steps = '';
   String productivity = '';
   List<String> habitans = [];
 
-  //body_needs_screen
   String bmr = '';
   String veryactive = '';
   String moderateactive = '';
@@ -33,6 +34,25 @@ class UserModel with ChangeNotifier {
   String cardio = '';
   String fatburning = '';
   String warmup = '';
+
+
+  bool nextHomePage = false;
+
+
+  int drinkWater = 5000;
+  int CountSteps = 10000;
+  String hoursminSport = '12h 00min';
+  String hoursminRead = '12h 00min';
+  String hoursminSleep = '12h 00min';
+
+
+  int witchdrawal = 0;
+
+
+  void setWitchdrawal(){
+    witchdrawal = (((drinkWater + CountSteps) / 2) /100).toInt();
+    notifyListeners();
+  }
 
 
 
@@ -46,11 +66,14 @@ class UserModel with ChangeNotifier {
   }
 
 
+
+  void getDataToLocalStore(BuildContext context,){
+    UserModalFunction.getDataToLocalStore(context, this);
+  }
+
   String getbmr(String item){
     return UserModalActivityLevel.getbmr(this, item);
   }
-
-
 
   void calcBMR(){
     UserModalActivityLevel.calculateBMR(this);
@@ -59,16 +82,18 @@ class UserModel with ChangeNotifier {
 
   void allSetgetbmr(){
     UserModalActivityLevel.allSetgetbmr(this);
-     UserModalActivityLevel.calcbpm(this);
+    UserModalActivityLevel.calcbpm(this);
   }
 
+  void nextPageStartPage(BuildContext context,index, UserModel userModel, TabsRouter tabsRouter,){
+    UserModalFunction.nextPageStartPage(context, index, userModel, tabsRouter);
+  }
 
 
   void allSets(names, ages, genders,heigths, weigths){
     UserModalPersonalData.allSets(this, names, ages, genders, heigths, weigths);
   }
 
-  //habits 
   void setWater(String waters){
    UserModalHabits.setWater(this, waters);
   }
@@ -84,8 +109,6 @@ class UserModel with ChangeNotifier {
   void setProductivity(String productivitys){
     UserModalHabits.setProductivity(this, productivitys);
   }
-
-
 
   void setName(String names){
     UserModalPersonalData.setName(this, names);

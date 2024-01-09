@@ -9,7 +9,7 @@ class TextCompleteTasks extends StatelessWidget {
     return Text(
               'Complete tasks and\nimprove your day!',
               textAlign: TextAlign.center,
-              style: GoogleFonts.getFont('Bona Nova',textStyle:TextStyle(height: 0.9, color: Colors.white) ,fontSize: 20,  letterSpacing: 0.2, wordSpacing:0.3,),
+              style: GoogleFonts.getFont('Bona Nova',textStyle: const TextStyle(height: 0.9, color: Colors.white) ,fontSize: 20,  letterSpacing: 0.2, wordSpacing:0.3,),
             );
   }
 }

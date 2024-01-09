@@ -24,14 +24,13 @@ class UserModalPersonalData {
     userModel.notifyListeners();
   } 
 
-  static void allSets(UserModel userModel,names, ages, genders,heigths, weigths){
+  static void allSets(UserModel userModel,names, ages, genders,heigths, weigths) async {
     setName(userModel, names);
     setAge(userModel,ages);
     setGender(userModel, genders);
     setHeigth(userModel, heigths);
     setWeigth(userModel,weigths);
+
   }
-
-
 
 }

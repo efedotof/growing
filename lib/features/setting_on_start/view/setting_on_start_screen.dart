@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:growing/Model/userModel.dart';
+import 'package:growing/Model/model.dart';
 import 'package:growing/router/router.dart';
 import 'package:provider/provider.dart';
 
@@ -15,9 +15,11 @@ class SettingOnStartScreen extends StatefulWidget {
 }
 
 class _SettingOnStartScreenState extends State<SettingOnStartScreen> {
+
+
   @override
   Widget build(BuildContext context) {
-    var usermodel = context.watch<UserModel>();
+    var userModel = context.watch<UserModel>();
     return AutoTabsRouter(
       routes: const [
         PersonalDataRoute(),
@@ -33,9 +35,11 @@ class _SettingOnStartScreenState extends State<SettingOnStartScreen> {
         return Scaffold(
           backgroundColor: const Color(0xFF1A1A1A),
           body: child,
-          bottomNavigationBar:usermodel.getBool()?
-       ContinueButton(tabsRouter: tabsRouter, index: usermodel.indexs(),)
-      :null
+          bottomNavigationBar:userModel.getBool()?
+            GestureDetector(
+              onTap: () => userModel.nextPageStartPage(context, userModel.indexs() , userModel, tabsRouter),
+              child: const ContinueButton())
+          :null
         );
       },
     );

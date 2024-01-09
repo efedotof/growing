@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:growing/router/router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-
 import 'Model/model.dart';
 
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
   runApp(MultiProvider(
      providers: [
-      ChangeNotifierProvider(create:  (_) => UserModel())
-
+      ChangeNotifierProvider(create:  (_) => UserModel()),
+      ChangeNotifierProvider(create:  (_) => ApplicationFile()),
      ],
     
     child: const GrowingApp()));

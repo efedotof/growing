@@ -9,6 +9,7 @@ import '../features/personal_data/personal_data.dart';
 import '../features/profile/profile.dart';
 import '../features/setting_on_start/setting_on_start.dart';
 import '../features/setting_on_start/view/setting_on_start_screen.dart';
+import '../features/splashScreen/splash_screen.dart';
 import '../features/today/today.dart';
 part 'router.gr.dart';
 
@@ -17,8 +18,12 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: StartRoute.page,
+          page: SplashRoute.page,
           path: '/',
+        ),
+        AutoRoute(
+          page: StartRoute.page,
+          path: '/startRoute',
         ),
         AutoRoute(
             page: SettingOnStartRoute.page,
